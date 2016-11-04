@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+	{% block container %}
+			<!-- COVER IMAGE AND FLOATING BUTTON -->
+			<div class="cover-image"></div>	
+			<div class="desktop-fab-container ">
+				<!-- REPLACE WITH YOUR APP URL -->
+     			<a href="YOUR_APP_URL_HERE">
+     				<paper-fab class="wow fadeInUp desktop-fab" icon="shop"></paper-fab>
+     			</a>
+			</div>
+			
+			<!-- ICON, NAME AND DESCRIPTION -->
+			<div class="wow fadeInDownBig content-card">
+				
+				
+				<div class="icon-and-title-flex">
+					
+					<div class="title-container">
+						<span class="text-title">Inscripción </span> <br><br>
+						Inscribe tu trabajo para su exposición completando los siguientes campos:
+					</div>	
+				</div><br><br>
+
+				<div class="row">
+					
+					<form class="col s12">
+					
+					<div class="row">
+						<div class="input-field col s12">
+							<input type="text"  name="titulo">
+              				<label for="titulo">Título</label>  
+						</div>
+					</div>	
+					
+					<div class="row">
+						<div class="input-field col s12">
+				            <input type="text" name="autor">
+				            <label for="autor"> Autor/Expositor</label>
+				         </div>
+				    </div>
+
+				    <div class="row">
+						<div class="input-field col s12">
+				            <input type="text" name="autores-secundarios">
+				            <label for="autores-secuendarios"> Autores secundarios</label>
+				        </div>
+				    </div>
+
+
+				    <div class="row">
+						<div class="input-field col s12">
+				            <textarea name="resumen" class="materialize-textarea"> </textarea>
+				            <label for="resumen"> Resumen </label>
+				        </div>
+				    </div>
+
+
+		            <div class="row">
+						<div class="input-field col s12">
+				            <select id="select" name="tema">
+				              <option value="" disabled selected>Seleccione un tema</option>
+				              <option value="1">Cloud</option>
+				              <option value="1">WS</option>
+				              <option value="2">BPM</option>
+				              <option value="3">SOA</option>
+				            </select>
+				            <label for="tema"> Tema </label>
+				        </div>
+				    </div>
+
+		         	<div class="row">
+				        <div class="input-field col s12">
+				          <input id="email" type="email" class="validate">
+				          <label for="email">Correo personal</label>
+				        </div>
+				      </div>
+
+				    <div class="row">
+						<div class="input-field col s12">
+		          			<input id="email" type="email" class="validate">
+		          			<label for="email">Correo gmail</label>
+		          		</div>
+		            </div>
+
+          			<div class="row">
+						<div class="input-field col s12">
+		          			<select id="select2" name="tipo-presentacion">
+				              <option value="" disabled selected>Seleccione</option>
+				              <option value="1">Póster</option>
+				              <option value="1">Conferencia</option>
+				             </select>
+				             <label for="tipo-presentacion"> Tipo de presentación</label>
+				        </div>
+          			</div>  <br><br>       			  
+	            
+
+		            <button class="btn waves-effect waves-light right" type="submit" name="action">Enviar
+    					<i class="material-icons right">send</i>
+  					</button>
+
+					</form>
+                
+				</div>	
+			</div>
+	{% endblock %}	
+	
