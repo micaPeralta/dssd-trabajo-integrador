@@ -22,7 +22,7 @@ class DefaultController extends Controller
      /**
      * @Route("/inscripcion", name="inscripcion")
      */
-    public function inscriptionAccion()
+    public function showInscriptionAccion()
     {
         // replace this example code with whatever you need
         return $this->render('inscription.html.twig', [
