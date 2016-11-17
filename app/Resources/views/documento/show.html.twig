@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>documento</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ documento.id }}</td>
+            </tr>
+            <tr>
+                <th>Link</th>
+                <td>{{ documento.link }}</td>
+            </tr>
+            <tr>
+                <th>Nro</th>
+                <td>{{ documento.nro }}</td>
+            </tr>
+            <tr>
+                <th>Finalizado</th>
+                <td>{% if documento.finalizado %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('documento_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

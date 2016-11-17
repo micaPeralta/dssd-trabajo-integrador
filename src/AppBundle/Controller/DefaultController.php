@@ -19,16 +19,6 @@ class DefaultController extends Controller
         ]);
     }
 
-     /**
-     * @Route("/inscripcion", name="inscripcion")
-     */
-    public function showInscriptionAccion()
-    {
-        // replace this example code with whatever you need
-        return $this->render('inscription.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
-        ]);
-    }
-
+   
 
 }

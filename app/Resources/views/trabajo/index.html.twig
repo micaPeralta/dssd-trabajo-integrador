@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Trabajo list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Tema</th>
+                <th>Tipopresentacion</th>
+                <th>Autor</th>
+                <th>Autoressecundarios</th>
+                <th>Aprobado</th>
+                <th>Resumen</th>
+                <th>Correogmail</th>
+                <th>Correo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for trabajo in trabajos %}
+            <tr>
+                <td><a href="{{ path('trabajo_show', { 'id': trabajo.id }) }}">{{ trabajo.id }}</a></td>
+                <td>{{ trabajo.titulo }}</td>
+                <td>{{ trabajo.tema }}</td>
+                <td>{{ trabajo.tipoPresentacion }}</td>
+                <td>{{ trabajo.autor }}</td>
+                <td>{{ trabajo.autoresSecundarios }}</td>
+                <td>{% if trabajo.aprobado %}Yes{% else %}No{% endif %}</td>
+                <td>{{ trabajo.resumen }}</td>
+                <td>{{ trabajo.correoGmail }}</td>
+                <td>{{ trabajo.correo }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('trabajo_show', { 'id': trabajo.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('trabajo_edit', { 'id': trabajo.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('trabajo_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

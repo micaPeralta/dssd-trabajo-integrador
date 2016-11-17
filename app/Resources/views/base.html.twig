@@ -3,12 +3,12 @@
 		
 		<title>DSSD2016</title>
 		
-		<meta name="author" content="Faiz Malkani">
 		<meta name="theme-color" content="#ffffff">
 		<meta charset="UTF-8">
 		<meta content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes" name="viewport">
+
 		<link rel="stylesheet" href="{{ asset('css/tidy.css') }}">
-		<link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
@@ -16,6 +16,9 @@
         <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.2/release/featherlight.min.css" type="text/css" rel="stylesheet" title="Featherlight Styles" />
         <script src="//cdn.rawgit.com/noelboss/featherlight/1.3.2/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
         
+        <!-- Animate css -->
+        <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+
         <!-- Font Awesome  -->
         <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
 
@@ -25,11 +28,11 @@
 
         <!-- Materialize -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
-        <!--Pace -->
+        <!--Pace  -->
          <script src="{{ asset('js/pace.js')}}"></script>
   		<link href="{{ asset('css/pace.css')}}" rel="stylesheet" />
           
@@ -37,7 +40,7 @@
 	<body>
 		
 		<div class="container" style="width: 100%">
-		{% block container %}
+		{% block body %}
 		{% endblock %}
 
 		</div>
@@ -52,16 +55,16 @@
 
 		<!-- JAVASCRIPT -->
 		
-       
+        <!-- Materialize selects-->
 		<script type="text/javascript">
         	$(document).ready(function() {
-         		 $('#select').material_select();
+         		 $('#trabajo_tema').material_select();
         	});
     	</script>
 
     	<script type="text/javascript">
         	$(document).ready(function() {
-         		 $('#select2').material_select();
+         		 $('#trabajo_tipoPresentacion').material_select();
         	});
     	</script>
 

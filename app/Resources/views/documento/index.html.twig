@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>documento list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Link</th>
+                <th>Nro</th>
+                <th>Finalizado</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for documento in documentos %}
+            <tr>
+                <td><a href="{{ path('documento_show', { 'id': documento.id }) }}">{{ documento.id }}</a></td>
+                <td>{{ documento.link }}</td>
+                <td>{{ documento.nro }}</td>
+                <td>{% if documento.finalizado %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('documento_show', { 'id': documento.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}
