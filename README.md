@@ -1,13 +1,11 @@
-# dssd-trabajo-integrador
 
+#Rutas
 
-rutas
+###publicar un nuevo trabajo
+*trabajo/new 
 
-#publicar un nuevo trabajo
-trabajo/new 
+###Finalizar documento 
+*documento/{id}/finalizar
 
-#Finalizar documento 
-documento/{id}/finalizar
-
-#webservice
-fecha/{tema}
+###webservice
+*fecha/{tema}
