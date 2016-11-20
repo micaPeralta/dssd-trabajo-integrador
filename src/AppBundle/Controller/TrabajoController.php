@@ -16,6 +16,7 @@ use AppBundle\Form\TrabajoType;
  */
 class TrabajoController extends Controller
 {
+ 
     /**
      * Lists all Trabajo entities.
      *
@@ -71,8 +72,7 @@ class TrabajoController extends Controller
 
         return $this->render('trabajo/show.html.twig', array(
             'trabajo' => $trabajo,
-            'delete_form' => $deleteForm->createView(),
-        ));
+            'delete_form' => $deleteForm->createView()));
     }
 
     /**
@@ -137,4 +137,7 @@ class TrabajoController extends Controller
             ->getForm()
         ;
     }
+
+
+
 }

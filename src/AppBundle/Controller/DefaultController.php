@@ -2,23 +2,41 @@
 
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+
 
 class DefaultController extends Controller
-{
-    /**
-     * @Route("/", name="homepage")
-     */
-    public function indexAction(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
-        ]);
-    }
+{   
 
-   
+    /**
+     * @Route("/fecha/{tema}")
+     * @Method({"GET", "POST"})
+     */
+     public function numberAction($tema)
+    {
+        $encoders = array(new XmlEncoder(), new JsonEncoder());
+        $normalizers = array(new ObjectNormalizer());
+
+        $serializer = new Serializer($normalizers, $encoders);
+        $number = mt_rand(8, 16);
+        $day = mt_rand(1,30);
+        $month = mt_rand(3,12);
+        $year = 2016;
+        $fecha = $number.'-'.$month.'-'.$year;
+        $hora = array('hora' => $number,'fecha'=> $fecha,'tema' => $tema);
+        $jsonContent = $serializer->serialize($hora, 'json');
+        return new Response(
+           $jsonContent
+        );
+    }
 
 }
