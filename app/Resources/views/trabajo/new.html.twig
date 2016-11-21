@@ -18,12 +18,15 @@
                     
                     <div class="title-container">
                         <span class="text-title">Inscripción </span> <br><br>
+                        {% if creado == 1%}
+                    <div class="card-panel teal lighten-2">Su trabajo fue registrado</div>
+                    {% endif %}
                         Inscribe tu trabajo para su exposición completando los siguientes campos:
                     </div>  
                 </div><br><br>
 
                 <div class="row">
-
+            
                         {{ form_start(form) }}
                         
                             {{ form_widget(form) }}
@@ -33,10 +36,8 @@
                         <i class="material-icons right">send</i>
                     </button>
                         {{ form_end(form) }}
+                </div>
+            </div>
 
-                        <ul>
-                            <li>
-                                <a href="{{ path('trabajo_index') }}">Back to the list</a>
-                            </li>
-                        </ul>
+                     
 {% endblock %}

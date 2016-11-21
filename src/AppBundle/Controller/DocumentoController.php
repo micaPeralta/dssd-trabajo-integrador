@@ -21,7 +21,7 @@ class DocumentoController extends Controller
      *
      * @Route("/", name="documento_index")
      * @Method("GET")
-     */
+    
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -32,13 +32,13 @@ class DocumentoController extends Controller
             'documentos' => $documentos,
         ));
     }
-
+     */
     /**
      * Finds and displays a Documento entity.
      *
      * @Route("/{id}", name="documento_show")
      * @Method("GET")
-     */
+     
     public function showAction(Documento $documento)
     {
 
@@ -46,7 +46,7 @@ class DocumentoController extends Controller
             'documento' => $documento,
         ));
     }
-
+    */
        /**
      * Muestra los datos del trabajo y un boton para finalizar
      *

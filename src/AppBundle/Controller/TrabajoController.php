@@ -12,7 +12,7 @@ use AppBundle\Form\TrabajoType;
 /**
  * Trabajo controller.
  *
- * @Route("/trabajo")
+ * @Route("/")
  */
 class TrabajoController extends Controller
 {
@@ -20,9 +20,9 @@ class TrabajoController extends Controller
     /**
      * Lists all Trabajo entities.
      *
-     * @Route("/", name="trabajo_index")
+     * @Route("/trabajos", name="trabajo_index")
      * @Method("GET")
-     */
+     
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -33,16 +33,18 @@ class TrabajoController extends Controller
             'trabajos' => $trabajos,
         ));
     }
+    */
 
     /**
      * Creates a new Trabajo entity.
      *
-     * @Route("/new", name="trabajo_new")
+     * @Route("/", name="trabajo_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
         $trabajo = new Trabajo();
+        $creado=false;
         $form = $this->createForm('AppBundle\Form\TrabajoType', $trabajo);
         $form->handleRequest($request);
 
@@ -51,12 +53,17 @@ class TrabajoController extends Controller
             $em->persist($trabajo);
             $em->flush();
 
-            return $this->redirectToRoute('trabajo_show', array('id' => $trabajo->getId()));
+            $creado=true;
+             unset($trabajo);
+             unset($form);
+             $trabajo = new Trabajo();
+             $form = $this->createForm('AppBundle\Form\TrabajoType', $trabajo);
         }
 
         return $this->render('trabajo/new.html.twig', array(
             'trabajo' => $trabajo,
             'form' => $form->createView(),
+            'creado'=>$creado
         ));
     }
 
@@ -65,7 +72,7 @@ class TrabajoController extends Controller
      *
      * @Route("/{id}", name="trabajo_show")
      * @Method("GET")
-     */
+     
     public function showAction(Trabajo $trabajo)
     {
         $deleteForm = $this->createDeleteForm($trabajo);
@@ -74,7 +81,8 @@ class TrabajoController extends Controller
             'trabajo' => $trabajo,
             'delete_form' => $deleteForm->createView()));
     }
-
+    */
+    
     /**
      * Displays a form to edit an existing Trabajo entity.
      *
@@ -107,7 +115,7 @@ class TrabajoController extends Controller
      *
      * @Route("/{id}", name="trabajo_delete")
      * @Method("DELETE")
-     */
+     
     public function deleteAction(Request $request, Trabajo $trabajo)
     {
         $form = $this->createDeleteForm($trabajo);
@@ -121,14 +129,14 @@ class TrabajoController extends Controller
 
         return $this->redirectToRoute('trabajo_index');
     }
-
+    */
     /**
      * Creates a form to delete a Trabajo entity.
      *
      * @param Trabajo $trabajo The Trabajo entity
      *
      * @return \Symfony\Component\Form\Form The form
-     */
+     
     private function createDeleteForm(Trabajo $trabajo)
     {
         return $this->createFormBuilder()
@@ -137,6 +145,7 @@ class TrabajoController extends Controller
             ->getForm()
         ;
     }
+    */
 
 
 
