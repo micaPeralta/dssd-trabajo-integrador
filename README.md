@@ -2,10 +2,14 @@
 #Rutas
 
 ###publicar un nuevo trabajo
-*trabajo/new 
+*/
 
 ###Finalizar documento 
-*documento/{id}/finalizar
+*documento/{id}/finalizar/{idDocDrive}
 
 ###webservice
 *fecha/{tema}
+
+###Generar PDF
+/documento/generarpdf
+

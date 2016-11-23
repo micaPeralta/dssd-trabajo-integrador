@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <!-- COVER IMAGE AND FLOATING BUTTON -->
+            <div class="cover-image"></div> 
+            <div class="desktop-fab-container ">
+                <!-- REPLACE WITH YOUR APP URL -->
+                <a href="YOUR_APP_URL_HERE">
+                    <paper-fab class="wow fadeInUp desktop-fab" icon="shop"></paper-fab>
+                </a>
+            </div>
+            
+            <!-- ICON, NAME AND DESCRIPTION -->
+            <div class="wow fadeIn content-card">
+                
+                
+                <div class="icon-and-title-flex">
+                    
+                    <div class="title-container">
+                        <span class="text-title">Generar Pdf  </span>
+                    </div> <br><br>
+                     
+                </div><br><br>
+
+                <div>
+                
+                      <a class="waves-effect waves-light btn right" href="https://docs.google.com/document/d/1kjFMiKpEVRu0IwY_RveRLEsxJJCwLIyQKVAA2mpJYJc/export?format=pdf"> Generar PDF</a>
+
+                </div>
+                
+                
+            </div>
+
+                     
+{% endblock %}

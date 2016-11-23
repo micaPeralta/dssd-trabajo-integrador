@@ -21,7 +21,7 @@
                     </div>  
                 </div>
             {% if finalizado== 0 %}
-           <p> Marque el documento del siguinete trabajo  como finalizado para que luego pase a ser revisado.</p>
+           <p> Marque el documento del siguiente trabajo  como finalizado para que luego pase a ser revisado.</p>
             
                 <table class="striped">
                     <tbody>
@@ -34,7 +34,7 @@
                     </tbody>
                 </table>
             <br>
-            <form action="{{ path('documento_finalize', { 'id': documento.id }) }}" method="POST">
+            <form action="{{ path('documento_finalize', { 'idD': documento.id , 'idDrive': Driveid }) }}" method="POST">
             <input type="hidden" name="idTrabajo" >
                     <button type="submit" name="Finalizar" class="waves-effect waves-light btn right""> Finalizar</button>  
             </form>

@@ -13,7 +13,7 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
-
+ 
 class DefaultController extends Controller
 {   
 
@@ -39,6 +39,7 @@ class DefaultController extends Controller
         );
     }
 
+   
 
 
 }

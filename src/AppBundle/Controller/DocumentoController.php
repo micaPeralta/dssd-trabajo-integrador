@@ -50,37 +50,59 @@ class DocumentoController extends Controller
        /**
      * Muestra los datos del trabajo y un boton para finalizar
      *
-     * @Route("/{id}/finalizar", name="documento_show_finalize")
+     * @Route("/{idD}/finalizar/{idDrive}", name="documento_show_finalize")
      * @Method("GET")
      */
-   public function showFinalizeAction($id){
+   public function showFinalizeAction($idD,$idDrive){
     
         $em = $this->getDoctrine()->getManager();
         $doc = $em->getRepository('AppBundle:Documento')
-        ->find($id);
+        ->find($idD);
 
         $doc->getFinalizado()==false? $finalizado=false:$finalizado=true;
-
+       
        
         return $this->render('documento/finalize.html.twig', array(
-            'documento' => $doc, 'finalizado'=>$finalizado));
+            'documento' => $doc, 'finalizado'=>$finalizado,
+            'Driveid'=>$idDrive));
         
     }
-
        /**
      * Finaliza un documento
      *
-     * @Route("/{id}/finalizar", name="documento_finalize")
+     * @Route("/{idD}/finalizar/{idDrive}", name="documento_finalize")
      * @Method("POST")
      */
-    public function finalizeAction($id){
+    public function finalizeAction($idD,$idDrive){
 
         $em = $this->getDoctrine()->getManager();
         $doc = $em->getRepository('AppBundle:Documento')
-        ->find($id);
+        ->find($idD);
         $doc->setFinalizado(1);
         $em->persist($doc);
         $em->flush();
-        return $this->redirect($this->generateUrl('documento_show_finalize',array('id'=>$id)));
+       
+        $url="https://script.google.com/macros/s/AKfycbwrnQZvKghG1pEMJalGA_HJEuh3XDNLo4JI42eILdc1ojEBWAXY/exec?id=".urldecode($idDrive);
+          $curl_request = curl_init($url);
+         curl_setopt($curl_request, CURLOPT_FOLLOWLOCATION, true);
+        $result = curl_exec($curl_request); // execute the request
+        curl_close($curl_request);
+        return $this->redirect($this->generateUrl('documento_show_finalize',array('idD'=>$idD,'idDrive'=>$idDrive)));
+      ;
     }
+
+    /**
+     * Genera pdf de todos los documentos
+     *
+     * @Route("/generarpdf", name="generar_pdf")
+     * @Method("GET")
+     */
+    public function showgeneratePdfAction(){
+
+      return $this->render('documento/desc.html.twig', array(
+            'documento' => '$doc'));
+        
+    }
+
+   
 }
