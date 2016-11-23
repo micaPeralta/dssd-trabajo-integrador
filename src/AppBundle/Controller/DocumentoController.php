@@ -86,6 +86,8 @@ class DocumentoController extends Controller
           $curl_request = curl_init($url);
          curl_setopt($curl_request, CURLOPT_FOLLOWLOCATION, true);
         $result = curl_exec($curl_request); // execute the request
+
+
         curl_close($curl_request);
         return $this->redirect($this->generateUrl('documento_show_finalize',array('idD'=>$idD,'idDrive'=>$idDrive)));
       ;
@@ -99,10 +101,26 @@ class DocumentoController extends Controller
      */
     public function showgeneratePdfAction(){
 
-      return $this->render('documento/desc.html.twig', array(
-            'documento' => '$doc'));
+       $urls="https://script.google.com/macros/s/AKfycbyULV56uZrikYMBxFmf_ZREZK7wks6GHDEama2b9rofMmPQSbfK/exec";
+         
+       $result= file_get_contents($urls);
+         return $this->render('documento/desc.html.twig', array('link' => $result));
         
     }
+
+      /**
+     * Genera pdf de todos los documentos
+     *
+     * @Route("/generarpdf", name="action_generar_pdf")
+     * @Method("post")
+     */
+    public function generatePdfAction(){
+
+        
+     return $this->redirectToRoute('generar_pdf');
+        
+    }
+
 
    
 }
